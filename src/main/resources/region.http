@@ -1,7 +1,7 @@
 Content-Type: application/json
 
-### Create ArticleType
-POST localhost:8080/article_type
+### Create Region
+POST localhost:8080/region
 {
   "orderNumber": "Asuna",
   "nameUz": "Yuuki",
@@ -9,8 +9,8 @@ POST localhost:8080/article_type
   "nameRu": "Yuuki",
 }
 
-### Update ArticleType
-PUT localhost:8080/article_type/1
+### Update Region
+PUT localhost:8080/region/1
 {
   "orderNumber": "Asuna",
   "nameUz": "Yuuki",
@@ -18,11 +18,11 @@ PUT localhost:8080/article_type/1
   "nameRu": "Yuuki",
 }
 
-### Delete ArticleType
-DELETE localhost:8080/article_type/1
+### Delete Region
+DELETE localhost:8080/region/1
 
 ### Get ArticleiType List
-GET localhost:8080/article_type?page=1&size=10
+GET localhost:8080/region?page=1&size=10
 
 ### Get ArticleiType List by Lang
-GET localhost:8080/article_type/uz/1
+GET localhost:8080/region/uz/1

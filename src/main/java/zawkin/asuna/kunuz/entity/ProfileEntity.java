@@ -3,6 +3,8 @@ package zawkin.asuna.kunuz.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import zawkin.asuna.kunuz.enums.ProfileRoleEnum;
+import zawkin.asuna.kunuz.enums.ProfileStatus;
 
 import java.time.LocalDateTime;
 
@@ -24,10 +26,14 @@ public class ProfileEntity {
     private Integer phone;
     @Column
     private String password;
+
+    @Enumerated(EnumType.STRING)
     @Column
-    private String status;
+    private ProfileStatus status;
+    @Enumerated(EnumType.STRING)
     @Column
-    private String role;
+    private ProfileRoleEnum role;
+
     @Column
     private Boolean visible;
     @Column

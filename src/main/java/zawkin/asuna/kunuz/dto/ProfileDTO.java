@@ -2,6 +2,8 @@ package zawkin.asuna.kunuz.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import zawkin.asuna.kunuz.enums.ProfileRoleEnum;
+import zawkin.asuna.kunuz.enums.ProfileStatus;
 
 import java.time.LocalDateTime;
 
@@ -14,8 +16,8 @@ public class ProfileDTO {
     private String email;
     private Integer phone;
     private String password;
-    private String status;
-    private String role;
+    private ProfileStatus status;
+    private ProfileRoleEnum role;
     private Boolean visible;
     private LocalDateTime createdDate;
     private Integer photoId;

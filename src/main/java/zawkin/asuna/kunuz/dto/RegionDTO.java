@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ArticleTypeDTO {
+public class RegionDTO {
     private Integer id;
     private Integer orderNumber;
     private LanguageEnum nameUz;

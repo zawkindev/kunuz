@@ -7,16 +7,21 @@ import zawkin.asuna.kunuz.enums.LanguageEnum;
 
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
 @Entity
-@Table(name = "article_type")
-public class ArticleTypeEntity {
+@Table(name = "region")
+public class RegionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
     @Column
     private Integer orderNumber;
+    @Column
+    private Boolean visible;
+    @Column
+    private LocalDateTime createdDate;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -27,9 +32,4 @@ public class ArticleTypeEntity {
     @Enumerated(EnumType.STRING)
     @Column
     private LanguageEnum nameRu;
-
-    @Column
-    private Boolean visible;
-    @Column
-    private LocalDateTime createdDate;
 }
