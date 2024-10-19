@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import zawkin.asuna.kunuz.entity.ArticleTypeEntity;
 
 @Repository
-public interface AricleTypeRepository extends CrudRepository<ArticleTypeEntity, Integer>, PagingAndSortingRepository<ArticleTypeEntity, Integer> {
+public interface ArticleTypeRepository extends CrudRepository<ArticleTypeEntity, Integer>, PagingAndSortingRepository<ArticleTypeEntity, Integer> {
     ArticleTypeEntity getById(Integer id);
 
     Page<ArticleTypeEntity> findAll(Pageable p);

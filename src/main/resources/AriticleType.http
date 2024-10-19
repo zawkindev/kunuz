@@ -1,0 +1,28 @@
+Content-Type: application/json
+
+### Create ApplicationType
+POST localhost:8080/application_type
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Update ApplicationType
+PUT localhost:8080/application_type/1
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Delete ApplicationType
+DELETE localhost:8080/application_type/1
+
+### Get ApplicationiType List
+GET localhost:8080/application_type
+
+### Get ApplicationiType List by Lang
+GET localhost:8080/application_type/uz/1

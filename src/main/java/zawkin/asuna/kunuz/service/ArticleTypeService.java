@@ -6,45 +6,49 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import zawkin.asuna.kunuz.dto.ArticleTypeDTO;
+import zawkin.asuna.kunuz.dto.ArticleTypeUserResponseDTO;
 import zawkin.asuna.kunuz.exp.CustomException;
-import zawkin.asuna.kunuz.repository.AricleTypeRepository;
+import zawkin.asuna.kunuz.repository.ArticleTypeRepository;
 import zawkin.asuna.kunuz.entity.ArticleTypeEntity;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 @Service
 public class ArticleTypeService {
     @Autowired
-    private AricleTypeRepository aricleTypeRepository;
+    private ArticleTypeRepository articleTypeRepository;
 
     public ArticleTypeDTO create(ArticleTypeDTO dto) {
+        dto.setCreatedDate(LocalDateTime.now());
+        dto.setVisible(true);
         ArticleTypeEntity entity = mapToEntity(dto);
-        aricleTypeRepository.save(entity);
+        articleTypeRepository.save(entity);
 
         dto.setId(entity.getId());
         return dto;
     }
 
     public ArticleTypeDTO update(ArticleTypeDTO dto) {
-        ArticleTypeEntity entity = aricleTypeRepository.getById(dto.getId());
+        ArticleTypeEntity entity = articleTypeRepository.getById(dto.getId());
         if (entity == null) {
             throw new CustomException("Article not found");
         }
-        aricleTypeRepository.save(mapToEntity(dto));
+        articleTypeRepository.save(mapToEntity(dto));
         return dto;
     }
 
     public Boolean deleteById(Integer id) {
-        aricleTypeRepository.deleteById(id);
-        if (aricleTypeRepository.getById(id) == null) {
+        articleTypeRepository.deleteById(id);
+        if (articleTypeRepository.getById(id) == null) {
             return true;
         }
         throw new CustomException("Deletion failed: Incorrect ID");
     }
 
     public Page<ArticleTypeDTO> getAll(Pageable pageable) {
-        Page<ArticleTypeEntity> page = aricleTypeRepository.findAll(pageable);
+        Page<ArticleTypeEntity> page = articleTypeRepository.findAll(pageable);
         Long totalCount = page.getTotalElements();
         List<ArticleTypeEntity> entityList = page.getContent();
 
@@ -54,6 +58,28 @@ public class ArticleTypeService {
         }
 
         return new PageImpl<ArticleTypeDTO>(dtoList, pageable, totalCount);
+    }
+
+    public ArticleTypeUserResponseDTO getByLang(Integer id, String name) {
+        ArticleTypeEntity entity = articleTypeRepository.getById(id);
+        if (entity == null) {
+            throw new CustomException("Article not found!");
+        }
+        ArticleTypeUserResponseDTO dto = new ArticleTypeUserResponseDTO(entity.getId(), entity.getOrderNumber(), entity.getCreatedDate());
+        switch (name) {
+            case "uz":
+                dto.setName(entity.getNameUz());
+                break;
+
+            case "en":
+                dto.setName(entity.getNameEn());
+                break;
+
+            case "ru":
+                dto.setName(entity.getNameRu());
+                break;
+        }
+        return dto;
     }
 
     public static ArticleTypeEntity mapToEntity(ArticleTypeDTO dto) {
