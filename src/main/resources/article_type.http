@@ -1,0 +1,28 @@
+Content-Type: application/json
+
+### Create ArticleType
+POST localhost:8080/article_type
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Update ArticleType
+PUT localhost:8080/article_type/1
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Delete ArticleType
+DELETE localhost:8080/article_type/1
+
+### Get ArticleiType List
+GET localhost:8080/article_type
+
+### Get ArticleiType List by Lang
+GET localhost:8080/article_type/uz/1

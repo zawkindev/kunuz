@@ -1,0 +1,45 @@
+Content-Type: application/json
+
+### Create Profile
+POST localhost:8080/profile/
+{
+  "name": "Asuna",
+  "surname": "Yuuki",
+  "email": "asunayuuki@sao.jp",
+  "phone": "09012345678",
+  "password": "03122004",
+  "status":"high_league",
+  "role":"waifu"
+}
+
+### Update Profile
+PUT localhost:8080/profile/1
+{
+  "name": "Asuna",
+  "surname": "Yuuki",
+  "email": "asunayuuki@sao.jp",
+  "phone": "09012345678",
+  "password": "22042006",
+  "status":"high_league",
+  "role":"waifu"
+}
+
+### Delete Profile
+DELETE localhost:8080/profile/1
+
+### Update Profile photo id
+PUT localhost:8080/profile/1?photo_id=2
+
+### Get Profile List
+GET localhost:8080/profile
+
+### Filter
+POST localhost:8080/profile/filter
+{
+  "name": "Asuna",
+  "surname": "Yuuki",
+  "phone": "09012345678",
+  "role":"waifu",
+  "created_date_from": null,
+  "created_date_to": null
+}

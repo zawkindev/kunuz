@@ -9,7 +9,8 @@ import zawkin.asuna.kunuz.dto.ArticleTypeDTO;
 import zawkin.asuna.kunuz.dto.ArticleTypeUserResponseDTO;
 import zawkin.asuna.kunuz.service.ArticleTypeService;
 
-@RestController(value = "/article_type")
+@RestController
+@RequestMapping("/article_type")
 public class ArticleTypeController {
     @Autowired
     private ArticleTypeService articleTypeService;

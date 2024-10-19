@@ -82,7 +82,7 @@ public class ArticleTypeService {
         return dto;
     }
 
-    public static ArticleTypeEntity mapToEntity(ArticleTypeDTO dto) {
+    public ArticleTypeEntity mapToEntity(ArticleTypeDTO dto) {
         ArticleTypeEntity entity = new ArticleTypeEntity();
         entity.setId(dto.getId());
         entity.setVisible(dto.getVisible());
@@ -94,7 +94,7 @@ public class ArticleTypeService {
         return entity;
     }
 
-    public static ArticleTypeDTO mapToDTO(ArticleTypeEntity entity) {
+    public ArticleTypeDTO mapToDTO(ArticleTypeEntity entity) {
         ArticleTypeDTO dto = new ArticleTypeDTO();
         dto.setId(entity.getId());
         dto.setVisible(entity.getVisible());
