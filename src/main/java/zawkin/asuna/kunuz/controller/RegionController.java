@@ -5,11 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zawkin.asuna.kunuz.dto.ArticleTypeDTO;
-import zawkin.asuna.kunuz.dto.ArticleTypeUserResponseDTO;
 import zawkin.asuna.kunuz.dto.RegionDTO;
 import zawkin.asuna.kunuz.dto.RegionUserResponseDTO;
-import zawkin.asuna.kunuz.service.ArticleTypeService;
 import zawkin.asuna.kunuz.service.RegionService;
 
 @RestController

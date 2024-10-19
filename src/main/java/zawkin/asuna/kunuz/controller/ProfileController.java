@@ -7,11 +7,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zawkin.asuna.kunuz.dto.ArticleTypeDTO;
-import zawkin.asuna.kunuz.dto.ArticleTypeUserResponseDTO;
 import zawkin.asuna.kunuz.dto.FilterProfileDTO;
 import zawkin.asuna.kunuz.dto.ProfileDTO;
-import zawkin.asuna.kunuz.service.ArticleTypeService;
 import zawkin.asuna.kunuz.service.ProfileService;
 
 @RestController

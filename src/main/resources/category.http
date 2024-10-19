@@ -1,0 +1,28 @@
+Content-Type: application/json
+
+### Create Category
+POST localhost:8080/category
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Update Category
+PUT localhost:8080/category/1
+{
+  "orderNumber": "Asuna",
+  "nameUz": "Yuuki",
+  "nameEn": "Yuuki",
+  "nameRu": "Yuuki",
+}
+
+### Delete Category
+DELETE localhost:8080/category/1
+
+### Get ArticleiType List
+GET localhost:8080/category?page=1&size=10
+
+### Get ArticleiType List by Lang
+GET localhost:8080/category/uz/1
