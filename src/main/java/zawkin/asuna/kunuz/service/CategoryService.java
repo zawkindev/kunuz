@@ -20,7 +20,6 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-
     public CategoryDTO create(CategoryDTO dto) {
         dto.setCreatedDate(LocalDateTime.now());
         dto.setVisible(true);
@@ -86,7 +85,6 @@ public class CategoryService {
     public CategoryEntity mapToEntity(CategoryDTO dto) {
         CategoryEntity entity = new CategoryEntity();
         entity.setId(dto.getId());
-        entity.setVisible(dto.getVisible());
         entity.setNameUz(dto.getNameUz());
         entity.setNameEn(dto.getNameEn());
         entity.setNameRu(dto.getNameRu());
@@ -98,7 +96,6 @@ public class CategoryService {
     public CategoryDTO mapToDTO(CategoryEntity entity) {
         CategoryDTO dto = new CategoryDTO();
         dto.setId(entity.getId());
-        dto.setVisible(entity.getVisible());
         dto.setNameUz(entity.getNameUz());
         dto.setNameEn(entity.getNameEn());
         dto.setNameRu(entity.getNameRu());
