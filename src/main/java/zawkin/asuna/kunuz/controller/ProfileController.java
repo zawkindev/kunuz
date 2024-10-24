@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zawkin.asuna.kunuz.dto.FilterProfileDTO;
 import zawkin.asuna.kunuz.dto.ProfileDTO;
+import zawkin.asuna.kunuz.dto.RegistrationDTO;
+import zawkin.asuna.kunuz.service.AuthService;
 import zawkin.asuna.kunuz.service.ProfileService;
 
 @RestController
@@ -16,6 +18,10 @@ import zawkin.asuna.kunuz.service.ProfileService;
 public class ProfileController {
     @Autowired
     private ProfileService profileService;
+
+    @Autowired
+    private AuthService authService;
+
 
     @PostMapping({"", "/"})
     public ResponseEntity<ProfileDTO> create(ProfileDTO profile) {
@@ -48,4 +54,5 @@ public class ProfileController {
         PageImpl<ProfileDTO> result = profileService.filter(filter, page - 1, size);
         return ResponseEntity.ok(result);
     }
+
 }

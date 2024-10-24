@@ -1,5 +1,5 @@
 package zawkin.asuna.kunuz.enums;
 
 public enum ProfileStatus {
-    ACTIVE, NOTACTIVE
+    ACTIVE, NOTACTIVE, IN_REGISTRATION
 }
