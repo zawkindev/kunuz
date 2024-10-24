@@ -14,6 +14,7 @@ import zawkin.asuna.kunuz.enums.ProfileStatus;
 import zawkin.asuna.kunuz.repository.ProfileRepository;
 import zawkin.asuna.kunuz.util.MD5Util;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -51,7 +52,7 @@ public class AuthService {
 //        sb.append("http://localhost:8081/auth/registration/confirm/").append(entity.getId()).append("\n");
 
 
-        return sendMimeMessage(dto.getEmail(), "Complete", sb.toString());
+        return sendMimeMessage(dto.getEmail(), "Verificate your email", sb.toString());
     }
 
 
@@ -90,6 +91,13 @@ public class AuthService {
         }
         ProfileEntity entity = optional.get();
         if (!entity.getStatus().equals(ProfileStatus.IN_REGISTRATION)) {
+            return "Not Completed";
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        Duration threshold = Duration.ofMinutes(5);
+        Duration duration = Duration.between(now, entity.getCreatedDate());
+        if (entity.getStatus().equals(ProfileStatus.IN_REGISTRATION) && duration.compareTo(threshold) > 0) {
             return "Not Completed";
         }
         entity.setStatus(ProfileStatus.ACTIVE);
