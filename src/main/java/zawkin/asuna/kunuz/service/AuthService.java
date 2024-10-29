@@ -8,10 +8,14 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import zawkin.asuna.kunuz.dto.AuthDTO;
+import zawkin.asuna.kunuz.dto.ProfileDTO;
 import zawkin.asuna.kunuz.dto.RegistrationDTO;
 import zawkin.asuna.kunuz.entity.ProfileEntity;
 import zawkin.asuna.kunuz.enums.ProfileStatus;
+import zawkin.asuna.kunuz.exp.AppBadRequestException;
 import zawkin.asuna.kunuz.repository.ProfileRepository;
+import zawkin.asuna.kunuz.util.JwtUtil;
 import zawkin.asuna.kunuz.util.MD5Util;
 
 import java.time.Duration;
@@ -51,10 +55,8 @@ public class AuthService {
 //        sb.append("Click the link below to complete registration.\n");
 //        sb.append("http://localhost:8081/auth/registration/confirm/").append(entity.getId()).append("\n");
 
-
         return sendMimeMessage(dto.getEmail(), "Verificate your email", sb.toString());
     }
-
 
     public String sendMimeMessage(String to, String subject, String text) {
         try {
@@ -104,4 +106,27 @@ public class AuthService {
         profileRepository.save(entity);
         return "Completed";
     }
+
+    public ProfileDTO login(AuthDTO dto) {
+        Optional<ProfileEntity> optional = profileRepository.findByEmailAndVisibleTrue(dto.getEmail());
+        if (optional.isEmpty()) {
+            throw new AppBadRequestException("Email or Password wrong");
+        }
+        ProfileEntity entity = optional.get();
+        if (!entity.getPassword().equals(MD5Util.md5(dto.getPassword()))) {
+            throw new AppBadRequestException("Email or Password wrong");
+        }
+        if (!entity.getStatus().equals(ProfileStatus.ACTIVE)) {
+            throw new AppBadRequestException("User Not Active");
+        }
+        ProfileDTO profileDTO = new ProfileDTO();
+        profileDTO.setName(entity.getName());
+        profileDTO.setSurname(entity.getSurname());
+        profileDTO.setEmail(entity.getEmail());
+        profileDTO.setRole(entity.getRole());
+        profileDTO.setJwtToken(JwtUtil.encode(entity.getEmail(), entity.getRole().toString()));
+
+        return profileDTO;
+    }
+
 }

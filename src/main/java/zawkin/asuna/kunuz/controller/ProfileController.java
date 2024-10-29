@@ -22,7 +22,6 @@ public class ProfileController {
     @Autowired
     private AuthService authService;
 
-
     @PostMapping({"", "/"})
     public ResponseEntity<ProfileDTO> create(ProfileDTO profile) {
         return ResponseEntity.ok(profileService.create(profile));

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import zawkin.asuna.kunuz.exp.AppBadRequestException;
 import zawkin.asuna.kunuz.exp.CustomException;
 
 import java.util.*;
@@ -33,8 +34,8 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, headers, status);
     }
 
-    @ExceptionHandler(CustomException.class)
-    public ResponseEntity<String> custom(CustomException e) {
+    @ExceptionHandler({CustomException.class, AppBadRequestException.class})
+    public ResponseEntity<String> custom(RuntimeException e) {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 }

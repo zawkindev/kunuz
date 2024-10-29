@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer>, PagingAndSortingRepository<ProfileEntity, Integer> {
     ProfileEntity getById(Integer id);
     Optional<ProfileEntity> findByIdAndVisibleTrue(Integer id);
+    Optional<ProfileEntity> findByEmailAndVisibleTrue(String email);
     Page<ProfileEntity> findAll(Pageable p);
 }
