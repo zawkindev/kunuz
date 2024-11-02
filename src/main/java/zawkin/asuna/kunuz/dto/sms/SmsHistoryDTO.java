@@ -1,4 +1,4 @@
-package zawkin.asuna.kunuz.dto;
+package zawkin.asuna.kunuz.dto.sms;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

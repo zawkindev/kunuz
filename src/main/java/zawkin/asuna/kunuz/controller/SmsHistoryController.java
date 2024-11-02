@@ -5,7 +5,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import zawkin.asuna.kunuz.dto.SmsHistoryDTO;
+import zawkin.asuna.kunuz.dto.sms.SmsHistoryDTO;
 import zawkin.asuna.kunuz.service.SmsHistoryService;
 
 import java.time.LocalDate;

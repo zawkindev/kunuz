@@ -1,4 +1,4 @@
-package zawkin.asuna.kunuz.dto;
+package zawkin.asuna.kunuz.dto.profile;
 
 import lombok.Getter;
 import lombok.Setter;

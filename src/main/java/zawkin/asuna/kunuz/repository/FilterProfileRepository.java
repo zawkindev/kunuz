@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
-import zawkin.asuna.kunuz.dto.FilterProfileDTO;
+import zawkin.asuna.kunuz.dto.profile.ProfileFilterDTO;
 import zawkin.asuna.kunuz.entity.ProfileEntity;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class FilterProfileRepository {
     @Autowired
     private EntityManager entityManager;
 
-    public Page<ProfileEntity> filter(FilterProfileDTO filter, int page, int size) {
+    public Page<ProfileEntity> filter(ProfileFilterDTO filter, int page, int size) {
 
         StringBuilder selectQueryBuilder = new StringBuilder("SELECT p FROM ProfileEntity p ");
         StringBuilder countQueryBuilder = new StringBuilder("SELECT count(p) FROM ProfileEntity p ");

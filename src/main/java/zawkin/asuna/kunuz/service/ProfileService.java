@@ -6,8 +6,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import zawkin.asuna.kunuz.dto.FilterProfileDTO;
-import zawkin.asuna.kunuz.dto.ProfileDTO;
+import zawkin.asuna.kunuz.dto.profile.ProfileFilterDTO;
+import zawkin.asuna.kunuz.dto.profile.ProfileDTO;
 import zawkin.asuna.kunuz.entity.ProfileEntity;
 import zawkin.asuna.kunuz.exp.CustomException;
 import zawkin.asuna.kunuz.repository.FilterProfileRepository;
@@ -75,7 +75,7 @@ public class ProfileService {
         return true;
     }
 
-    public PageImpl<ProfileDTO> filter(FilterProfileDTO filter, int page, int size) {
+    public PageImpl<ProfileDTO> filter(ProfileFilterDTO filter, int page, int size) {
         Page<ProfileEntity> result = filterProfileRepository.filter(filter, page, size);
 
         long totalCount = result.getTotalElements();

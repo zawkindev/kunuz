@@ -1,9 +1,7 @@
-package zawkin.asuna.kunuz.dto;
+package zawkin.asuna.kunuz.dto.article;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Getter;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
 import zawkin.asuna.kunuz.enums.ArticleEnum;
 
 import java.time.LocalDateTime;

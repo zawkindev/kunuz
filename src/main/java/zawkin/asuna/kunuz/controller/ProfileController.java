@@ -7,9 +7,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zawkin.asuna.kunuz.dto.FilterProfileDTO;
-import zawkin.asuna.kunuz.dto.ProfileDTO;
-import zawkin.asuna.kunuz.dto.RegistrationDTO;
+import zawkin.asuna.kunuz.dto.profile.ProfileFilterDTO;
+import zawkin.asuna.kunuz.dto.profile.ProfileDTO;
 import zawkin.asuna.kunuz.service.AuthService;
 import zawkin.asuna.kunuz.service.ProfileService;
 
@@ -50,7 +49,7 @@ public class ProfileController {
     }
 
     @PostMapping("/filter")
-    public ResponseEntity<PageImpl<ProfileDTO>> filter(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "size", defaultValue = "30") int size, @RequestBody FilterProfileDTO filter) {
+    public ResponseEntity<PageImpl<ProfileDTO>> filter(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "size", defaultValue = "30") int size, @RequestBody ProfileFilterDTO filter) {
         PageImpl<ProfileDTO> result = profileService.filter(filter, page - 1, size);
         return ResponseEntity.ok(result);
     }

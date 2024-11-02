@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zawkin.asuna.kunuz.dto.CategoryDTO;
-import zawkin.asuna.kunuz.dto.CategoryUserResponseDTO;
+import zawkin.asuna.kunuz.dto.category.CategoryDTO;
+import zawkin.asuna.kunuz.dto.category.CategoryUserResponseDTO;
 import zawkin.asuna.kunuz.service.CategoryService;
 
 @RestController

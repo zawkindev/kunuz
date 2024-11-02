@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import zawkin.asuna.kunuz.dto.SmsHistoryDTO;
+import zawkin.asuna.kunuz.dto.sms.SmsHistoryDTO;
 import zawkin.asuna.kunuz.entity.SmsHistoryEntity;
 import zawkin.asuna.kunuz.repository.SmsHistoryRepository;
 

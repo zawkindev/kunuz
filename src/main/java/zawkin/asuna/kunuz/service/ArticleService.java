@@ -2,7 +2,7 @@ package zawkin.asuna.kunuz.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zawkin.asuna.kunuz.dto.ArticleDTO;
+import zawkin.asuna.kunuz.dto.article.ArticleDTO;
 import zawkin.asuna.kunuz.entity.ArticleEntity;
 import zawkin.asuna.kunuz.enums.ArticleEnum;
 import zawkin.asuna.kunuz.exp.CustomException;

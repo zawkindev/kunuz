@@ -3,8 +3,7 @@ package zawkin.asuna.kunuz.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zawkin.asuna.kunuz.dto.ArticleDTO;
-import zawkin.asuna.kunuz.dto.CategoryDTO;
+import zawkin.asuna.kunuz.dto.article.ArticleDTO;
 import zawkin.asuna.kunuz.enums.ArticleEnum;
 import zawkin.asuna.kunuz.service.ArticleService;
 

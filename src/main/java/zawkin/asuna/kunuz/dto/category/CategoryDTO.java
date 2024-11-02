@@ -1,4 +1,4 @@
-package zawkin.asuna.kunuz.dto;
+package zawkin.asuna.kunuz.dto.category;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ArticleTypeDTO {
+public class CategoryDTO {
     private Integer id;
     private Integer orderNumber;
     private LanguageEnum nameUz;

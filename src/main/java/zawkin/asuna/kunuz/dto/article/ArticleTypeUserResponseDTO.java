@@ -1,4 +1,4 @@
-package zawkin.asuna.kunuz.dto;
+package zawkin.asuna.kunuz.dto.article;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class RegionUserResponseDTO {
+public class ArticleTypeUserResponseDTO {
     private Integer id;
     private Integer orderNumber;
     private LanguageEnum name;
     private LocalDateTime createdDate;
 
-    public RegionUserResponseDTO(Integer id, Integer orderNumber, LocalDateTime createdDate) {
+    public ArticleTypeUserResponseDTO(Integer id, Integer orderNumber, LocalDateTime createdDate) {
         this.id = id;
         this.orderNumber = orderNumber;
         this.createdDate = createdDate;
