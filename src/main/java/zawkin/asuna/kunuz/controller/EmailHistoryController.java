@@ -19,17 +19,17 @@ public class EmailHistoryController {
     @Autowired
     private EmailHistoryService service;
 
-    @GetMapping({"", "/"})
+    @GetMapping("/by-email")
     public ResponseEntity<List<EmailHistoryDTO>> getByEmail(@RequestParam("email") String email) {
         return ResponseEntity.ok(service.getByEmail(email));
     }
 
-    @GetMapping({"", "/"})
+    @GetMapping("/by-date")
     public ResponseEntity<List<EmailHistoryDTO>> getByDate(@RequestParam("to") LocalDate to, @RequestParam("from") LocalDate from) {
         return ResponseEntity.ok(service.getByDate(from, to));
     }
 
-    @GetMapping({"", "/"})
+    @GetMapping("/")
     public ResponseEntity<PageImpl<EmailHistoryDTO>> getAll(@RequestParam("page") int page, @RequestParam("size") int size) {
         return ResponseEntity.ok(service.getAllWithPagination(page, size));
     }
