@@ -18,4 +18,11 @@ public class EmailHistoryDTO {
     private String email;
     @NonNull
     private LocalDateTime createdDate;
+
+    @Getter
+    @Setter
+    public static class TagDTO {
+        private Integer id;
+        private String name;
+    }
 }
