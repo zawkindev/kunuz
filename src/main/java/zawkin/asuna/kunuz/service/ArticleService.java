@@ -121,7 +121,7 @@ public class ArticleService {
 
     // 14. Get Last 5 Articles by Category Key
     public List<ArticleShortInfoDTO> getLast5ByCategory(String categoryKey) {
-        List<ArticleEntity> entities = articleRepository.findTop5ByCategoryKeyOrderByCreatedDateDesc(categoryKey);
+        List<ArticleEntity> entities = articleRepository.findTop5ByCategoryIdOrderByCreatedDateDesc(categoryKey);
         return entities.stream().map(this::mapToShortInfoDTO).collect(Collectors.toList());
     }
 

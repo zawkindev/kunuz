@@ -9,11 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import zawkin.asuna.kunuz.dto.article.ArticleFilterDTO;
 import zawkin.asuna.kunuz.entity.ArticleEntity;
 import zawkin.asuna.kunuz.enums.ArticleEnum;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,11 +71,16 @@ public interface ArticleRepository extends CrudRepository<ArticleEntity, String>
 
 
     // 14. Get last 5 articles by category key
-    @Query("SELECT a FROM ArticleEntity a WHERE a.category_id.id = :categoryId ORDER BY a.createdDate DESC")
-    List<ArticleEntity> findTop5ByCategoryKeyOrderByCreatedDateDesc(@Param("categoryId") String categoryId);
+    @Query("SELECT a FROM ArticleEntity a WHERE a.category.id = :id ORDER BY a.createdDate DESC")
+    List<ArticleEntity> findTop5ByCategoryIdOrderByCreatedDateDesc(@Param("id") String id);
 
     // 15. Get article list by category key with pagination
-    Page<ArticleEntity> findByCategoryKeyAndVisibleTrue(String categoryKey, Pageable pageable);
+
+    Page<ArticleEntity> findByCategoryIdAndVisibleTrue(String categoryId, Pageable pageable);
+
+    @Query("SELECT a FROM ArticleEntity a WHERE a.category.id = :id")
+    Page<ArticleEntity> findByCategoryId(@Param("id") Long id, Pageable pageable);
+
 
     // 16. Increase article view count by article ID
     @Modifying

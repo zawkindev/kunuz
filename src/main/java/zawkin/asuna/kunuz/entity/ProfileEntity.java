@@ -13,31 +13,39 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "profile")
 public class ProfileEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
+
+    @Column(nullable = false)
     private String name;
-    @Column
+
+    @Column(nullable = false)
     private String surname;
-    @Column
+
+    @Column(unique = true)
     private String email;
-    @Column
-    private Integer phone;
-    @Column
+
+    @Column(unique = true)
+    private String phone;
+
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(nullable = false)
     private ProfileStatus status;
+
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(nullable = false)
     private ProfileRoleEnum role;
 
-    @Column
-    private Boolean visible;
-    @Column
-    private LocalDateTime createdDate;
-    @Column
+    @Column(name = "visible", nullable = false)
+    private Boolean visible = Boolean.TRUE;
+
+    @Column(name = "created_date", nullable = false, updatable = false)
+    private LocalDateTime createdDate = LocalDateTime.now();
+
+    @Column(name = "photo_id")
     private Integer photoId;
 }
