@@ -68,4 +68,8 @@ public class ArticleEntity {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<TagEntity> tags; // Tags associated with the article
+
+    public ArticleEntity(String articleId) {
+        this.id = articleId;
+    }
 }

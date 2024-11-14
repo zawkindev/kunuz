@@ -48,4 +48,8 @@ public class ProfileEntity {
 
     @Column(name = "photo_id")
     private Integer photoId;
+
+    public ProfileEntity(Integer profileId) {
+        this.id = profileId;
+    }
 }
